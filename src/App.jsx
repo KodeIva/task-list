@@ -9,8 +9,7 @@ function App() {
     e.preventDefault()
     setTodos(currentTodos => {
        return [...currentTodos,{id: crypto.randomUUID(),title: newTask, completed:false}]
-    }
-    )
+    })
   }
 
   console.log(todos);
@@ -19,10 +18,10 @@ function App() {
     <>
     <form onSubmit={addNewTask}>
       <div>
-        <label htmlFor="item">New Task</label>
-        <input defaultValue={newTask} onChange={e => setNewTask(e.target.value)}  type="text" />
+        <label htmlFor="task">New Task</label>
+        <input defaultValue={newTask} onChange={e => setNewTask(e.target.value)} id='task' type="text" />
       </div>
-      <button>Add</button>
+      <button onClick={(e)=> addNewTask(e)}>Add</button>
     </form>
     
     <h1>Tasks: </h1>
