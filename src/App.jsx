@@ -5,21 +5,24 @@ function App() {
   const [newTask,setNewTask] = useState("")
   const [todos, setTodos] = useState([])
 
-  function handleSubmit(e) {
+  function addNewTask(e) {
     e.preventDefault()
-    setTodos([...todos,{id: crypto.randomUUID,title: newTask, completed: false}])
+    setTodos(currentTodos => {
+       return [...currentTodos,{id: crypto.randomUUID(),title: newTask, completed:false}]
+    }
+    )
   }
 
   console.log(todos);
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={addNewTask}>
       <div>
         <label htmlFor="item">New Task</label>
         <input defaultValue={newTask} onChange={e => setNewTask(e.target.value)}  type="text" />
       </div>
-      <button >Add</button>
+      <button>Add</button>
     </form>
     <h1>Tasks: </h1>
     </>
