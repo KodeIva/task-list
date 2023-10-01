@@ -24,7 +24,20 @@ function App() {
       </div>
       <button>Add</button>
     </form>
+    
     <h1>Tasks: </h1>
+    <div className="taskList">
+      {todos.map(todo => {
+        const {title,id} = todo
+        return (
+          <div className='singleItem' key={id}>
+           <input type='checkbox' />
+           <h3>{title}</h3>
+           <button className="delete">Delete Item</button>
+          </div>
+        )
+      })}
+    </div>
     </>
   )
 }
