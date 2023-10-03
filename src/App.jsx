@@ -47,19 +47,24 @@ function App() {
       <button onClick={(e)=> addNewTask(e)}>Add</button>
     </form>
     
-    <h1>Tasks: </h1>
-    <div className="taskList">
-      {todos.map(todo => {
-        const {title,id} = todo
-        return (
-          <div className='singleItem' key={id}>
-           <input type='checkbox' checked={completed} onChange={() => completedTask(id,completed)}/>
-           <h3>{title}</h3>
-           <button className="delete">Delete Item</button>
-          </div>
-        )
-      })}
-    </div>
+    {
+      todos.length > 0 &&  
+       <>
+        <h1>Tasks: </h1>
+        <div className="taskList">
+         {todos.map(todo => {
+          const {title,id} = todo
+          return (
+            <div className='singleItem' key={id}>
+              <input type='checkbox' checked={completed} onChange={() => completedTask(id,completed)}/>
+              <h3>{title}</h3>
+              <button className="delete">Delete Item</button>
+            </div>
+          )
+         })}
+       </div>
+      </>
+    }
     </>
   )
 }
