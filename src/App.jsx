@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { v4 as uuidv4} from 'uuid'
+import{ BiPlus } from "react-icons/bi"
 
 function App() {
   const [newTask,setNewTask] = useState("")
@@ -43,7 +44,7 @@ function App() {
         <label htmlFor="task">New Task</label>
         <input value={newTask} onChange={e => setNewTask(e.target.value)} id='task' type="text" />
       </div>
-      <button onClick={(e)=> addNewTask(e)}>Add</button>
+      <button className='bg-white flex justify-center align-middle  w-20 h-9 text-3xl' onClick={(e)=> addNewTask(e)}><BiPlus className='text-slate-500 mt-1'/></button>
     </form>
     
     {
