@@ -16,33 +16,39 @@ function App() {
     setNewTask("")
   }
 
-  /*function addNewTask(e) {
-    e.preventDefault()
-    setTodos(currentTodos => {
-       return [...currentTodos,{id: uuidv4(),title: newTask, completed: completed}]
-    })
-    setNewTask("")
-  }
-*/
-
   console.log(todos);
 
-  function completedTask(id, completed) {
+  // To be finished
+  const completedTask = (id,completed) => {
+    {
+       todos.map((todo) => todo.id !== id) 
+      
+      setCompleted()
+    }
+   }
+
+ const deletedTask = (id) => {
+   let deletedItem = todos.filter((item) => item.id !== id)
+   setTodos(deletedItem)
+  } 
+  
+
+    /*
    setTodos(currentTodos => {
     return currentTodos.map(todo => {
       if(todo.id === id) {
         return {...todo, completed}
       }
     })
-   })
-  }
+   })*/
+  
 
   return (
     <>
     <form onSubmit={addNewTask}>
       <div>
         <label htmlFor="task">New Task</label>
-        <input defaultValue={newTask} onChange={e => setNewTask(e.target.value)} id='task' type="text" />
+        <input value={newTask} onChange={e => setNewTask(e.target.value)} id='task' type="text" />
       </div>
       <button onClick={(e)=> addNewTask(e)}>Add</button>
     </form>
@@ -56,9 +62,9 @@ function App() {
           const {title,id} = todo
           return (
             <div className='singleItem' key={id}>
-              <input type='checkbox' checked={completed} onChange={() => completedTask(id,completed)}/>
+              <input type='checkbox' value={completed} checked={completed} onChange={() => completedTask(id,completed)}/>
               <h3>{title}</h3>
-              <button className="delete">Delete Item</button>
+              <button className="delete" onClick={() => deletedTask(id)} >Delete Item</button>
             </div>
           )
          })}
