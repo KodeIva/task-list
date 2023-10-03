@@ -32,6 +32,9 @@ function App() {
    setTodos(deletedItem)
   } 
   
+ const deleteAllTasks = () => {
+  setTodos([])
+ }
 
     /*
    setTodos(currentTodos => {
@@ -57,7 +60,7 @@ function App() {
       todos.length > 0 &&  
        <>
         <h1>Tasks: </h1>
-        <div className="taskList">
+        <div className="taskList" style={{background:'pink'}}>
          {todos.map(todo => {
           const {title,id} = todo
           return (
@@ -69,6 +72,7 @@ function App() {
           )
          })}
        </div>
+       <button onClick={deleteAllTasks} >Delete All</button>
       </>
     }
     </>
