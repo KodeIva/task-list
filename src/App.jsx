@@ -1,18 +1,31 @@
 import { useState } from 'react'
 import './App.css'
+import { v4 as uuidv4} from 'uuid'
 
 function App() {
   const [newTask,setNewTask] = useState("")
   const [todos, setTodos] = useState([])
+  const [completed, setCompleted] = useState(false)
 
   function addNewTask(e) {
     e.preventDefault()
     setTodos(currentTodos => {
-       return [...currentTodos,{id: crypto.randomUUID(),title: newTask, completed:false}]
+       return [...currentTodos,{id: uuidv4(),title: newTask, completed: completed}]
     })
+    setNewTask("")
   }
 
   console.log(todos);
+
+  function completedTask(id, completed) {
+   setTodos(currentTodos => {
+    return currentTodos.map(todo => {
+      if(todo.id === id) {
+        return {...todo, completed}
+      }
+    })
+   })
+  }
 
   return (
     <>
@@ -30,7 +43,7 @@ function App() {
         const {title,id} = todo
         return (
           <div className='singleItem' key={id}>
-           <input type='checkbox' />
+           <input type='checkbox' checked={completed} onChange={() => completedTask(id,completed)}/>
            <h3>{title}</h3>
            <button className="delete">Delete Item</button>
           </div>
