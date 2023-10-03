@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import { v4 as uuidv4} from 'uuid'
 
 function App() {
@@ -36,18 +35,9 @@ function App() {
   setTodos([])
  }
 
-    /*
-   setTodos(currentTodos => {
-    return currentTodos.map(todo => {
-      if(todo.id === id) {
-        return {...todo, completed}
-      }
-    })
-   })*/
-  
 
   return (
-    <>
+    <div className='bg-indigo-400 w-[100%] h-[100vh]' >
     <form onSubmit={addNewTask}>
       <div>
         <label htmlFor="task">New Task</label>
@@ -75,7 +65,7 @@ function App() {
        <button onClick={deleteAllTasks} >Delete All</button>
       </>
     }
-    </>
+    </div>
   )
 }
 
