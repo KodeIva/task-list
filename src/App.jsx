@@ -9,11 +9,21 @@ function App() {
 
   function addNewTask(e) {
     e.preventDefault()
+    if(task) {
+      const newAddedTask = {id: uuidv4(), title:newTask}
+      setTodos([...todos,newAddedTask])
+    }
+    setNewTask("")
+  }
+
+  /*function addNewTask(e) {
+    e.preventDefault()
     setTodos(currentTodos => {
        return [...currentTodos,{id: uuidv4(),title: newTask, completed: completed}]
     })
     setNewTask("")
   }
+*/
 
   console.log(todos);
 
