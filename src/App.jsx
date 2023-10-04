@@ -38,18 +38,18 @@ function App() {
 
 
   return (
-    <div className='bg-indigo-400 w-[100%] h-[100vh]' >
-    <form onSubmit={addNewTask}>
+    <div className='bg-indigo-400 flex flex-col items-center w-[100%] h-[100vh]' >
+    <form className='bg-pink-300 flex flex-col items-center mt-[10px] h-[auto] lg:w-[50%] w-[90%] p-[50px]' onSubmit={addNewTask}>
       <div>
         <label htmlFor="task">New Task</label>
         <input value={newTask} onChange={e => setNewTask(e.target.value)} id='task' type="text" />
       </div>
-      <button className='bg-white flex justify-center align-middle  w-20 h-9 text-3xl' onClick={(e)=> addNewTask(e)}><BiPlus className='text-slate-500 mt-1'/></button>
+      <button className='bg-white flex  justify-center align-middle  w-20 h-9 text-3xl' onClick={(e)=> addNewTask(e)}><BiPlus className='text-slate-500 mt-1'/></button>
     </form>
     
     {
       todos.length > 0 &&  
-       <>
+       <div >
         <h1>Tasks: </h1>
         <div className="taskList" style={{background:'pink'}}>
          {todos.map(todo => {
@@ -64,7 +64,7 @@ function App() {
          })}
        </div>
        <button onClick={deleteAllTasks} >Delete All</button>
-      </>
+      </div>
     }
     </div>
   )
