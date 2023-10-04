@@ -39,12 +39,13 @@ function App() {
 
   return (
     <div className='bg-indigo-400 flex flex-col items-center w-[100%] h-[100vh]' >
-    <form className='bg-pink-300 flex flex-col items-center mt-[10px] h-[auto] lg:w-[50%] w-[90%] p-[50px]' onSubmit={addNewTask}>
+    <form className=' flex flex-col items-center mt-[10px] h-[auto] md:bg-orange-500 md:flex-row md:w-[70%] lg:w-[50%] w-[90%] p-[50px]' onSubmit={addNewTask}>
       <div>
-        <label htmlFor="task">New Task</label>
-        <input value={newTask} onChange={e => setNewTask(e.target.value)} id='task' type="text" />
+        <input 
+          className='w-[350px] m-2 p-2 rounded-lg'
+          value={newTask} placeholder='Add new task ...' onChange={e => setNewTask(e.target.value)} id='task' type="text" />
       </div>
-      <button className='bg-white flex  justify-center align-middle  w-20 h-9 text-3xl' onClick={(e)=> addNewTask(e)}><BiPlus className='text-slate-500 mt-1'/></button>
+      <button className='bg-white flex justify-center rounded-lg items-center  w-[350px] h-9 text-3xl' onClick={(e)=> addNewTask(e)}><BiPlus className='text-slate-500 mt-1'/></button>
     </form>
     
     {
