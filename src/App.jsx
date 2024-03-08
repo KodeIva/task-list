@@ -22,8 +22,7 @@ function App() {
   const completedTask = (id,completed) => {
     {
        todos.map((todo) => todo.id !== id) 
-      
-      setCompleted()
+       setCompleted(!completed)
     }
    }
 
@@ -58,7 +57,7 @@ function App() {
           return (
             <div className='singleItem' key={id}>
               <input type='checkbox' value={completed} checked={completed} onChange={() => completedTask(id,completed)}/>
-              <h3>{title}</h3>
+              <h3 style={{textDecoration: completed ? 'line-through' : 'none'}}>{title}</h3>
               <button className="delete" onClick={() => deletedTask(id)} >Delete Item</button>
             </div>
           )
