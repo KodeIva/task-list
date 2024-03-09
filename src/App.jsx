@@ -9,9 +9,14 @@ function App() {
 
   function addNewTask(e) {
     e.preventDefault()
-    if(task) {
+    if(newTask) {
       const newAddedTask = {id: uuidv4(), title:newTask}
       setTodos([...todos,newAddedTask])
+      
+    }
+    if(!newTask) {
+      alert('Please add task')
+      return
     }
     setNewTask("")
   }
@@ -21,10 +26,14 @@ function App() {
   // To be finished
   const completedTask = (id,completed) => {
     {
-       todos.map((todo) => todo.id !== id) 
+       todos.map((todo) => todo.id === id ) 
        setCompleted(!completed)
+       //console.log(todo.title);
+      }
+      
+       
     }
-   }
+   
 
  const deletedTask = (id) => {
    let deletedItem = todos.filter((item) => item.id !== id)
