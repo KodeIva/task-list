@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { v4 as uuidv4} from 'uuid'
 import{ BiPlus } from "react-icons/bi"
+import { ToastContainer, toast } from 'react-toastify'
 
 function App() {
   const [newTask,setNewTask] = useState("")
@@ -12,10 +13,10 @@ function App() {
     if(newTask) {
       const newAddedTask = {id: uuidv4(), title:newTask}
       setTodos([...todos,newAddedTask]) 
-      
+
     }
     if(!newTask) {
-      alert('Please add task')
+      toast.error('Please add task')
       return
     }
     setNewTask("")
@@ -46,6 +47,7 @@ function App() {
 
 
   return (
+    <>
     <div className='bg-indigo-400 flex flex-col items-center w-[100%] h-[100vh]' >
     <form className=' flex flex-col items-center mt-[10px] h-[auto] md:bg-orange-500 md:flex-row md:w-[70%] lg:w-[50%] w-[90%] p-[50px]' onSubmit={addNewTask}>
       <div>
@@ -77,6 +79,8 @@ function App() {
       </div>
     }
     </div>
+    <ToastContainer position='top-left' />
+    </>
   )
 }
 
