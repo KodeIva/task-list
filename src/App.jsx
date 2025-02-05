@@ -11,7 +11,7 @@ function App() {
     e.preventDefault()
     if(newTask) {
       const newAddedTask = {id: uuidv4(), title:newTask}
-      setTodos([...todos,newAddedTask])
+      setTodos([...todos,newAddedTask]) 
       
     }
     if(!newTask) {
@@ -65,8 +65,9 @@ function App() {
           const {title,id} = todo
           return (
             <div className='singleItem' key={id}>
-              <input type='checkbox' value={completed} checked={completed} onChange={() => completedTask(id,completed)}/>
+              <input type='checkbox' value={completed} checked={completed} onChange={() => completedTask(!completed)}/>
               <h3 style={{textDecoration: completed ? 'line-through' : 'none'}}>{title}</h3>
+              
               <button className="delete" onClick={() => deletedTask(id)} >Delete Item</button>
             </div>
           )
