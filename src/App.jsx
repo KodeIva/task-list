@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { v4 as uuidv4} from 'uuid'
 import{ BiPlus } from "react-icons/bi"
 import { ToastContainer, toast } from 'react-toastify'
+import ItemsList from './ItemsList'
 
 function App() {
   const [newTask,setNewTask] = useState("")
@@ -60,7 +61,7 @@ function App() {
     
     {
       todos.length > 0 &&  
-        
+        <ItemsList todos={todos} completed={completed} completedTask={completedTask} deletedTask={deletedTask} deleteAllTasks={deleteAllTasks} />
     }
 
    
