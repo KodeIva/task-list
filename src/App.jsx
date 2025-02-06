@@ -70,12 +70,12 @@ function App() {
               <input type='checkbox' className='m-2' value={completed} checked={completed} onChange={() => completedTask(!completed)}/>
               <h3 style={{textDecoration: completed ? 'line-through' : 'none'}} className='m-2 left-9'>{title}</h3>
               
-              <button className="delete bg-blue-800 text-white rounded-lg my-2 mx-4 px-4 absolute right-0 hover:bg-white hover:text-blue-800 transition delay-150 duration-300 ease-in-out" onClick={() => deletedTask(id)} >Delete</button>
+              <button className="delete bg-blue-800 text-white border-2 border-blue-800 rounded-lg my-2 mx-4 px-4 absolute right-0 hover:bg-white hover:text-blue-800 transition delay-150 duration-300 ease-in-out" onClick={() => deletedTask(id)} >Delete</button>
             </div>
           )
          })}
        </div>
-       <button className='bg-blue-800 text-white mt-6 py-1 px-6 border-2 rounded-lg hover:bg-white hover:border-2 hover:border-blue-800 hover:text-blue-800 transition delay-150 duration-300 ease-in-out ' onClick={deleteAllTasks} >Delete All</button>
+       <button className='bg-blue-800 text-white mt-6 py-1 px-6 border-2 border-blue-800 rounded-lg hover:bg-white hover:border-2 hover:border-blue-800 hover:text-blue-800 transition delay-150 duration-300 ease-in-out ' onClick={deleteAllTasks} >Delete All</button>
       </div>
     }
     </div>
