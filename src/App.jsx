@@ -14,6 +14,7 @@ function App() {
     if(newTask) {
       const newAddedTask = {id: uuidv4(), title:newTask}
       setTodos([...todos,newAddedTask]) 
+      toast.success('New task added')
     }
     if(!newTask) {
       toast.error('Please add task')
